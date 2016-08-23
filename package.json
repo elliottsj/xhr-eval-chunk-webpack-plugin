@@ -1,0 +1,46 @@
+{
+  "name": "xhr-eval-chunk-webpack-plugin",
+  "version": "0.0.0",
+  "description": "Load chunks via XHR + eval, instead of creating <script> elements",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "develop": "babel src --watch --out-dir lib",
+    "lint": "eslint .",
+    "prepublish": "npm run build",
+    "test": "npm run lint && npm run webpack && npm run zuul:phantomjs",
+    "webpack": "webpack --config test/webpack.config.js",
+    "zuul:phantomjs": "zuul --phantom -- test/test.js",
+    "zuul:local": "zuul --local -- test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elliottsj/xhr-eval-chunk-webpack-plugin.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Spencer Elliott <me@elliottsj.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elliottsj/xhr-eval-chunk-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/elliottsj/xhr-eval-chunk-webpack-plugin#readme",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-eslint": "^6.1.2",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-stage-1": "^6.13.0",
+    "clean-webpack-plugin": "^0.1.10",
+    "es6-promise": "^3.2.1",
+    "eslint": "^3.3.1",
+    "eslint-config-airbnb-base": "^5.0.3",
+    "eslint-plugin-import": "^1.14.0",
+    "phantomjs": "^2.1.7",
+    "webpack": "^2.1.0-beta.21",
+    "zuul": "^3.11.0"
+  },
+  "peerDependencies": {
+    "webpack": "^2.1.0-beta.21"
+  }
+}

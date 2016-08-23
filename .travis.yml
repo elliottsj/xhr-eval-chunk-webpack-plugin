@@ -1,0 +1,17 @@
+# Use Trusty beta environment: https://docs.travis-ci.com/user/trusty-ci-environment/
+sudo: required
+dist: trusty
+
+language: node_js
+node_js:
+  - '4'
+  - stable
+cache:
+  directories:
+    - node_modules
+install:
+  - npm prune && npm install
+env:
+  global:
+    - secure: OCoq8/lX2eGv8OsWqCiQer9q440USc1HGyn42lNdchYnbuZ6Nm/jberPRRSAb9nalU5a61FyLvZnSX2VJWzJroYBgnKO4Mul4Hx5uVZ6woCnJ/gIIVRAU3vUE09eIuksEd/j+P1lvJyL11LGxA3ANJbY4g0g2mdIjms6fxBJASqiUQtV35i2KCIL+6pXw+GxHboHhbDJfuJh3xW/AwZjgAcT6iqjxsbISdlGLy1pazLW4mrJRNjSxa9RCUl0gyqomc47IpDYMaICRM3cSOR0P+3LIOCRPeRgk7jHK+HEV59oDlksiTzFnZGS9OuGOQBwyDG+aMmW39qS7AvTPiI8nCyyvQ615cvFCrXgdPjqSJbBnfOwTnSBqJVTiXLT7jjB51fqipNqZSyG8DnC+GdcrNWgGkvByNiVStnaMM0UUtxyiNEr91CFMa7Tivs7QOlG8YDhyUEe7DJpY2SxHvrqOw/Bv8JmFZra0Rt1NbBurfASyUAfe9+VbuqozkSxfMhZr588WnzrBiDrzfkNW70xf62FK3krIfGe9x5UVcFwnAQlFO5ByGqQpq8SX+/dMXFiStPuey1Gz65x5d/bvDNrIW8isl6OmkWB8KHaZ5USg75WVMUwPM8E0U1BsucZ4CNmEyayeBTDeNc2cDOP+T+qbRKGlxO3pYB0f2+BqqlGJ+A=
+    - secure: iVYsTFN+2soExUdn0vmmWcgQfRu/rwT4ddF7IdK5nSZXcfzeQOowFI+OZjnG5FCOkJWrAl+GHQhuGB/Y9WabadAsrtvYpQS9JBUKi6MkZA1UIwvUExANyi71tvgycta90gxuqFiq3rT9tqyhj9ToYb8NBjoc2/jDi6L0DgkbULZ5LBBuDN5z3om18eMzz9otD5U/JX3Np3Deefs47/FdU6AhlUhW5eX+FkYgzVvZCo0/zurcme/6poI4j4eRGGs2Ik/p1qGpAsYz989PooTu7ZvWjKH6eNSg8/J4pk7+TISyAcxDrYHht4rcWy9EAVKMbO94yGlGu40ITI+TgUZA/6KhKcavHm4Tko9yd8xAL/Mh7bLHDurysBynplRTDoq6b6SFNg8Apfq5r+q+FXJFYthkkn2YbWPqtxXfY4h9au9bcxb/QrJwEOPDaLOH+knHGvXMuLT9Q2PPEYsUJcVvVBEY+Z98o05LLyyA4WWop34Q4PkvaslWs9HKXgHB0AupYKwIENFfZWu8IeXffWkW12twcN8Ln0jUboUTO8cZIdMcy9svpI71ehxF2IJN2zLgdd4tCMCSws255LTSf6g1IKuSNF22d5ukCQTgG4RQy3kZAvq6OpHpbnrQBO/HxzopPZrvQ+k7MG6GEz+Mgrz5N15yFuaAgXELLd0gDcIcm8w=

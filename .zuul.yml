@@ -1,0 +1,7 @@
+ui: jasmine
+browsers:
+  - name: chrome
+    version: latest
+scripts:
+  - node_modules/es6-promise/dist/es6-promise.js
+  - test/build/bundle.js
