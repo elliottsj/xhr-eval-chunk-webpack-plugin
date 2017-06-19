@@ -33,7 +33,7 @@
     "babel-preset-stage-1": "^6.13.0",
     "clean-webpack-plugin": "^0.1.10",
     "es6-promise": "^4.1.0",
-    "eslint": "^3.3.1",
+    "eslint": "^4.0.0",
     "eslint-plugin-prettier": "^2.1.2",
     "phantomjs-prebuilt": "^2.1.12",
     "prettier": "^1.4.4",
