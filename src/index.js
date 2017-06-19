@@ -8,38 +8,48 @@ export default class XhrEvalChunkPlugin {
         function requireEnsurePlugin(source, chunk, hash) {
           const chunkFilename = this.outputOptions.chunkFilename;
           const chunkMaps = chunk.getChunkMaps();
-          const chunkLoadTimeout = this.outputOptions.chunkLoadTimeout || 120000;
-          const chunkUrl = `${this.requireFn}.p + ${
-            this.applyPluginsWaterfall('asset-path', JSON.stringify(chunkFilename), {
+          const chunkLoadTimeout =
+            this.outputOptions.chunkLoadTimeout || 120000;
+          const chunkUrl = `${this
+            .requireFn}.p + ${this.applyPluginsWaterfall(
+            'asset-path',
+            JSON.stringify(chunkFilename),
+            {
               hash: `" + ${this.renderCurrentHashCode(hash)} + "`,
-              hashWithLength: (length) => `" + ${this.renderCurrentHashCode(hash, length)} + "`,
+              hashWithLength: length =>
+                `" + ${this.renderCurrentHashCode(hash, length)} + "`,
               chunk: {
                 id: '" + chunkId + "',
                 hash: `" + ${JSON.stringify(chunkMaps.hash)}[chunkId] + "`,
-                hashWithLength: (length) => {
+                hashWithLength: length => {
                   const shortChunkHashMap = Object.keys(chunkMaps.hash)
-                    .filter(chunkId => typeof chunkMaps.hash[chunkId] === 'string')
-                    .reduce((acc, chunkId) => ({
-                      ...acc,
-                      [chunkId]: chunkMaps.hash[chunkId].substr(0, length),
-                    }), {});
-                  return `" + ${JSON.stringify(shortChunkHashMap)}[chunkId] + "`;
+                    .filter(
+                      chunkId => typeof chunkMaps.hash[chunkId] === 'string',
+                    )
+                    .reduce(
+                      (acc, chunkId) => ({
+                        ...acc,
+                        [chunkId]: chunkMaps.hash[chunkId].substr(0, length),
+                      }),
+                      {},
+                    );
+                  return `" + ${JSON.stringify(
+                    shortChunkHashMap,
+                  )}[chunkId] + "`;
                 },
-                name: `" + (${JSON.stringify(chunkMaps.name)}[chunkId]||chunkId) + "`,
+                name: `" + (${JSON.stringify(
+                  chunkMaps.name,
+                )}[chunkId]||chunkId) + "`,
               },
-            })
-          }`;
+            },
+          )}`;
           return this.asString([
             'if(installedChunks[chunkId] === 0)',
-            this.indent([
-              'return Promise.resolve();',
-            ]),
+            this.indent(['return Promise.resolve();']),
             '',
             '// an Promise means "currently loading".',
             'if(installedChunks[chunkId]) {',
-            this.indent([
-              'return installedChunks[chunkId][2];',
-            ]),
+            this.indent(['return installedChunks[chunkId][2];']),
             '}',
             '// start chunk loading',
             `var timeout = setTimeout(onReadyStateChange, ${chunkLoadTimeout});`,
@@ -66,13 +76,11 @@ export default class XhrEvalChunkPlugin {
             'xhr.send();',
             '',
             'var promise = new Promise(function(resolve, reject) {',
-            this.indent([
-              'installedChunks[chunkId] = [resolve, reject];',
-            ]),
+            this.indent(['installedChunks[chunkId] = [resolve, reject];']),
             '});',
             'return installedChunks[chunkId][2] = promise;',
           ]);
-        }
+        },
       );
     });
   }

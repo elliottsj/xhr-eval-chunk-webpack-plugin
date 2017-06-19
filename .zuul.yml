@@ -3,5 +3,5 @@ browsers:
   - name: chrome
     version: latest
 scripts:
-  - node_modules/es6-promise/dist/es6-promise.js
+  - node_modules/es6-promise/dist/es6-promise.auto.js
   - test/build/bundle.js
