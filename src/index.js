@@ -10,7 +10,7 @@ export default class XhrEvalChunkPlugin {
           const chunkMaps = chunk.getChunkMaps();
           const chunkLoadTimeout =
             this.outputOptions.chunkLoadTimeout || 120000;
-          const chunkUrl = `${this
+          const chunkUrl = `"/" + ${this
             .requireFn}.p + ${this.applyPluginsWaterfall(
             'asset-path',
             JSON.stringify(chunkFilename),
