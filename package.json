@@ -28,7 +28,7 @@
   "homepage": "https://github.com/elliottsj/xhr-eval-chunk-webpack-plugin#readme",
   "devDependencies": {
     "babel-cli": "^6.11.4",
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.0.0",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-stage-1": "^6.13.0",
     "clean-webpack-plugin": "^0.1.10",
